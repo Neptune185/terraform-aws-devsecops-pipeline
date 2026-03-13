@@ -17,6 +17,15 @@ resource "aws_s3_bucket" "security_reports" {
   bucket = "kevin-devsecops-terraform-security-reports"
 }
 
+resource "aws_s3_bucket_public_access_block" "security_reports_pab" {
+  bucket = aws_s3_bucket.security_reports.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
 resource "aws_s3_bucket_versioning" "security_reports_versioning" {
   bucket = aws_s3_bucket.security_reports.id
 

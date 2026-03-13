@@ -212,5 +212,5 @@ __marimo__/
 *.tfstate.*
 crash.log
 
-# Keep lock file
+# Keep lock filegit
 !.terraform.lock.hcl
