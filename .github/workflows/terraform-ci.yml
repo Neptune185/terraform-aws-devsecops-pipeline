@@ -45,8 +45,8 @@ jobs:
         with:
           directory: terraform
           framework: terraform
-          output_format: json
-          output_file_path: checkov-report.json
-
+          output_format: cli,json
+          output_file_path: console,checkov-report.json
+          
       - name: Terraform Plan
         run: terraform plan -input=false
