@@ -24,7 +24,7 @@ jobs:
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
-        
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -47,10 +47,9 @@ jobs:
           framework: terraform
           output_format: cli,json
           output_file_path: console,checkov-report.json
-          
+
       - name: Terraform Plan
         run: terraform plan -input=false
 
       - name: Upload Checkov Report to S3
         run: aws s3 cp checkov-report.json s3://kevin-devsecops-terraform-security-reports/checkov-report-${{ github.run_number }}.json
-        
