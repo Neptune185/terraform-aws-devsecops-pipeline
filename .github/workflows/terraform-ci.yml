@@ -40,5 +40,9 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Run Checkov
+        run: C:\Users\runneradmin\AppData\Local\Programs\Python\Python313\Scripts\checkov.cmd -d . -o json > ../security-reports/checkov-report.json
+        shell: powershell 
+
       - name: Terraform Plan
         run: terraform plan -input=false
