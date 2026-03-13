@@ -50,3 +50,7 @@ jobs:
           
       - name: Terraform Plan
         run: terraform plan -input=false
+
+      - name: Upload Checkov Report to S3
+        run: aws s3 cp checkov-report.json s3://kevin-devsecops-terraform-security-reports/checkov-report-${{ github.run_number }}.json
+        
